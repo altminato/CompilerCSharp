@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CompilerCSharp.Source.Buffer;
+using System;
 
 namespace CompilerCSharp
 {
@@ -11,6 +8,16 @@ namespace CompilerCSharp
         static void Main(string[] args)
         {
             Console.WriteLine("C# Pascal Compiler");
+            
+
+            String filename = @"..\..\test.txt";
+            TSourceBuffer buffer = new TSourceBuffer(filename);
+            char line;
+            while ((line=buffer.GetChar()) != TextInBuffer.EndOfFile)
+            {
+                Console.WriteLine("*"+line+"*");
+            }
+
             Console.Read();
         }
     }

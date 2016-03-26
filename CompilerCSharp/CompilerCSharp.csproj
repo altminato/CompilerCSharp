@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Source\Buffer\TextInBuffer.cs" />
+    <Compile Include="Source\Buffer\TSourceBuffer.cs" />
     <Compile Include="Source\Compiler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
