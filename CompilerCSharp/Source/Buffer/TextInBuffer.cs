@@ -58,5 +58,12 @@ namespace CompilerCSharp.Source.Buffer
 
             return currentChar;
         }
+
+        public char PutBackChar()
+        {
+            currentLinePosition--;
+            currentChar = currentLine.ElementAt(currentLinePosition);
+            return currentChar;
+        }
     }
 }
