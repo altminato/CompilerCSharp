@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CompilerCSharp.Source.Error;
+using System;
 using System.Linq;
 
 namespace CompilerCSharp.Source.Buffer
@@ -25,16 +26,16 @@ namespace CompilerCSharp.Source.Buffer
             get { return currentChar; }
         }
 
-        public TextInBuffer(String filename)
+        public TextInBuffer(String filename, AbortCodes.AbortCode abortCode)
         {
             this.filename = filename;
             try
             {
                 lines = System.IO.File.ReadAllLines(filename);
             }
-            catch(Exception ex)
+            catch(Exception)
             {
-                Console.WriteLine("Error: " + ex.Message);
+                AbortCodes.AbortTranslation(abortCode);
             }
         }
 

@@ -39,12 +39,7 @@ namespace CompilerCSharp.Source.Buffer
 
         public TListBuffer(String filename) : base(filename)
         {
-            
-        }
-
-        public void PrintPageHeader()
-        {
-
+            Initialize(filename);
         }
 
         public override void PutLine()
@@ -60,6 +55,25 @@ namespace CompilerCSharp.Source.Buffer
             LineCount++;
         }
 
+        public void PutLine(String line)
+        {
+            base.PutLine(line);
+        }
+
+        public void PutLine(String line, int lineNumber, int nestingLevel)
+        {
+            Console.WriteLine(currentText + " linenumber "+lineNumber+" nestingLevel "+nestingLevel+" "+line);
+            PutLine();
+        }
+
+        public void PrintPageHeader()
+        {
+            char formFeedChar = '\f';
+
+            Console.WriteLine(formFeedChar + "Page "+pageNumber+" "+filename+" "+date);
+            lineCount = 0;
+        }
+        
         private void Initialize(String filename)
         {
             pageNumber = 0;

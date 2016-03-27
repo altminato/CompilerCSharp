@@ -1,10 +1,11 @@
-﻿using System;
+﻿using CompilerCSharp.Source.Error;
+using System;
 
 namespace CompilerCSharp.Source.Buffer
 {
     public class TSourceBuffer:TextInBuffer
     {
-        public TSourceBuffer(String filename):base(filename) {}
+        public TSourceBuffer(String filename):base(filename, AbortCodes.AbortCode.AbortFormFileOpenFailed) {}
 
         public override String GetLine()
         {

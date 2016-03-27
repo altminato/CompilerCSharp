@@ -10,7 +10,7 @@ namespace CompilerCSharp
             Console.WriteLine("C# Pascal Compiler");
             
 
-            String filename = @"..\..\test.txt";
+            String filename = @"..\..\testi.txt";
             TSourceBuffer buffer = new TSourceBuffer(filename);
             char line;
             while ((line=buffer.GetChar()) != TextInBuffer.EndOfFile)
