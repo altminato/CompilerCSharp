@@ -15,7 +15,7 @@ namespace CompilerCSharp.Source.Buffer
         #region Fields
         private String date;
         private int pageNumber;
-        private bool listFlag;
+        private bool listFlag=true;
         private int lineCount;
         public bool ListFlag
         {
@@ -49,8 +49,6 @@ namespace CompilerCSharp.Source.Buffer
                 PrintPageHeader();
             }
 
-            Console.WriteLine(currentText);
-
             currentText = "";
             LineCount++;
         }
@@ -62,7 +60,7 @@ namespace CompilerCSharp.Source.Buffer
 
         public void PutLine(String line, int lineNumber, int nestingLevel)
         {
-            Console.WriteLine(currentText + " linenumber "+lineNumber+" nestingLevel "+nestingLevel+" "+line);
+            Console.WriteLine(lineNumber+" "+nestingLevel+": "+line);
             PutLine();
         }
 

@@ -8,6 +8,12 @@ namespace CompilerCSharp.Source.Buffer
         protected String filename;
         protected String currentText;
 
+        public String CurrentText
+        {
+            set { currentText = value; }
+            get { return currentText; }
+        }
+
         public TextOutBuffer(String filename)
         {
             this.filename = filename;

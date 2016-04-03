@@ -7,24 +7,17 @@ namespace CompilerCSharp.Source.Buffer
     public abstract class TextInBuffer
     {
 
-        #region Constants
-        public const char EndOfFile = '\0';
-        #endregion
-
         #region Protected Fields
         private String filename;
         protected String[] lines;
         protected int linesPosition = 0;
-        protected char currentChar;
-        protected String currentLine;
+        protected char currentChar=Common.Common.StartOfFile;
+        protected String currentLine=null;
         protected int currentLinePosition;
+        private bool pendingToPrint;
+        private bool printNow;
         #endregion
-
-
-        public char CurrentChar
-        {
-            get { return currentChar; }
-        }
+        
 
         public TextInBuffer(String filename, AbortCodes.AbortCode abortCode)
         {
@@ -41,19 +34,34 @@ namespace CompilerCSharp.Source.Buffer
 
         public abstract String GetLine();
 
+        public char CurrentChar
+        {
+            get { return currentChar; }
+        }
+
         public char GetChar()
         {
+            if (printNow == false)
+                printNow = true;
             if ((currentLine == null) || (currentLinePosition >= currentLine.Length))
             {
                 currentLine = GetLine();
                 currentLinePosition = 0;
+                pendingToPrint = true;
+                printNow = false;
             }
 
             if (currentLine == null)
             {
-                return EndOfFile;
+                currentChar = Common.Common.EndOfFile;
+                return Common.Common.EndOfFile;
             }
 
+            if(pendingToPrint && printNow)
+            {
+                Common.Common.ListBuffer.PutLine(currentLine, Common.Common.CurrentLineNumber, Common.Common.CurrentNestingLevel);
+                pendingToPrint = false;
+            }
             currentChar = currentLine.ElementAt(currentLinePosition);
             currentLinePosition++;
 

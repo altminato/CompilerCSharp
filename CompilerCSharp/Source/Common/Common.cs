@@ -1,15 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CompilerCSharp.Source.Buffer;
+using static CompilerCSharp.Source.Misc.Codes;
 
 namespace CompilerCSharp.Source.Common
 {
     public static class Common
     {
+        public const char EndOfFile = '\b';
+        public const char StartOfFile = '\f';
+
+
         static int currentLineNumber;
         static int currentNestingLevel;
+        static int errorCount;
+        static TListBuffer list = null;
 
         public static int CurrentLineNumber
         {
@@ -28,5 +31,22 @@ namespace CompilerCSharp.Source.Common
             }
             get { return currentNestingLevel; }
         }
+
+        public static int CurrentErrorCount
+        {
+            set
+            {
+                errorCount = value;
+            }
+            get { return errorCount; }
+        }
+
+        public static TListBuffer ListBuffer
+        {
+            set { list = value; }
+            get { return list; }
+        }
+
+        public static CharCode[] CharCodeMap = new CharCode[128];
     }
 }

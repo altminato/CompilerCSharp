@@ -15,6 +15,7 @@ namespace CompilerCSharp.Source.Buffer
             }
             String line = lines[linesPosition];
             linesPosition++;
+            Common.Common.CurrentLineNumber += 1;
             return line;
         }
     }

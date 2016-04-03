@@ -8,15 +8,6 @@ namespace CompilerCSharp.Source.Error
 {
     public static class AbortCodes
     {
-        static int errorCount = 0;
-        public static int ErrorCount
-        {
-            set
-            {
-                errorCount = value;
-            }
-            get { return errorCount; }
-        }
 
         public enum AbortCode
         {

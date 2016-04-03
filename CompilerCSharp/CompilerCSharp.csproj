@@ -48,13 +48,26 @@
     <Compile Include="Source\Buffer\TListBuffer.cs" />
     <Compile Include="Source\Buffer\TSourceBuffer.cs" />
     <Compile Include="Source\Common\Common.cs" />
-    <Compile Include="Source\Compiler.cs" />
+    <Compile Include="Source\CompilerCSharp\Compiler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\Error\AbortCodes.cs" />
+    <Compile Include="Source\Misc\Codes.cs" />
+    <Compile Include="Source\Misc\DataValue.cs" />
+    <Compile Include="Source\Parsers\SimpleParser.cs" />
+    <Compile Include="Source\Scanner\Scanner.cs" />
+    <Compile Include="Source\Scanner\TextScanner.cs" />
+    <Compile Include="Source\Tokens\EOFToken.cs" />
+    <Compile Include="Source\Tokens\ErrorToken.cs" />
+    <Compile Include="Source\Tokens\NumberToken.cs" />
+    <Compile Include="Source\Tokens\SpecialToken.cs" />
+    <Compile Include="Source\Tokens\StringToken.cs" />
+    <Compile Include="Source\Tokens\Token.cs" />
+    <Compile Include="Source\Tokens\WordToken.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
